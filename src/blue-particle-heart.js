@@ -8,7 +8,7 @@ export function mountBlueParticleHeart(root){
  let speed=baseSpeed,currentColor=palette[0];
  const hexRgb=h=>({r:parseInt(h.slice(1,3),16),g:parseInt(h.slice(3,5),16),b:parseInt(h.slice(5,7),16)});
  const mixColor=(a,b,t)=>{const x=hexRgb(a),y=hexRgb(b);return `rgb(${Math.round(lerp(x.r,y.r,t))},${Math.round(lerp(x.g,y.g,t))},${Math.round(lerp(x.b,y.b,t))})`;};
- function updateTimedEffects(){const slot=900,hold=720,stage=Math.floor(time/slot)%palette.length,within=time%slot,next=(stage+1)%palette.length,blend=clamp((within-hold)/180,0,1);currentColor=blend>0?mixColor(palette[stage],palette[next],blend):palette[stage];speed=baseSpeed+Math.min(time/900,8)*.45;root.style.setProperty('--heart-color',currentColor);}
+ function updateTimedEffects(){const slot=720,hold=600,transition=120,stage=Math.floor(time/slot)%palette.length,within=time%slot,next=(stage+1)%palette.length,blend=clamp((within-hold)/transition,0,1);currentColor=blend>0?mixColor(palette[stage],palette[next],blend):palette[stage];const intensityBoost=time<2400?(0.05*(time/300)+0.20*clamp((time-2100)/300,0,1)):(0.60+0.02*((time-2400)/900));speed=baseSpeed*(1+intensityBoost);root.style.setProperty('--heart-color',currentColor);root.style.setProperty('--heart-intensity',`${Math.round((1+intensityBoost)*100)}%`);}
  let W=0,H=0,DPR=1,particles=[],last=0,time=0,mode='normal',gather=0,dissolve=0,nextDissolve=24,beat=0,raf=0,active=true;
  const center={x:0,y:0},pointer={x:0,y:0,down:false};
  const point=t=>({x:16*Math.pow(Math.sin(t),3),y:-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))});
