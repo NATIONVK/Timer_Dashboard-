@@ -12,3 +12,61 @@
 @media(max-width:800px){.timer-layout{grid-template-columns:1fr;gap:20px;padding-top:35px}.timer-intro{max-width:none}.timer-intro h1{font-size:42px;margin:12px 0}.timer-intro p{font-size:12px}.subject-picker{margin:34px 0 0}.heart-stage{height:65vh;min-height:430px}.timer-foot{margin-top:0}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-grid{grid-template-columns:1fr}.dashboard{padding-top:30px}}
 @media(max-width:480px){.topbar{height:68px;padding:0 14px}.brand{font-size:10px}.brand-mark{width:34px;height:34px}.brand small{font-size:7px}.topbar nav button{padding:9px 12px;font-size:11px}.local-status{display:none}.timer-layout{min-height:calc(100dvh - 68px);padding:28px 14px 22px}.timer-intro h1{font-size:38px}.heart-stage{height:58vh;min-height:390px;border-radius:20px}.heart-overlay strong{font-size:27px}.timer-actions{bottom:17px}.control{min-width:125px;min-height:44px}.timer-foot{font-size:8px;gap:18px}.dashboard{padding:28px 14px}.welcome-row{align-items:flex-start}.welcome-row h1{font-size:33px}.welcome-row p{font-size:11px}.goal-ring{width:86px;height:86px;flex-basis:86px}.goal-ring strong{font-size:18px}.metric{padding:15px}.metric strong{font-size:21px}.panel{padding:16px}.panel-head{margin-bottom:18px}.panel h2{font-size:17px}.week-chart{gap:4px}.bar-track{width:24px;height:115px}.bar-col>span{font-size:8px}.goal-setting{align-items:flex-start;flex-direction:column}.goal-setting select{width:100%}.dashboard-footer{font-size:8px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* Subject and task management — adapted from Focus Flow task workflow */
+.management-page{max-width:1180px;margin:0 auto;padding:clamp(28px,5vw,58px) clamp(16px,4vw,52px) 60px}
+.management-heading{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:26px}
+.management-heading h1{font-size:clamp(34px,5vw,54px);letter-spacing:-.06em;margin:12px 0}
+.management-heading h1 em{font-style:normal;color:#68b3ff}
+.management-heading p{color:var(--muted);font-size:13px;line-height:1.7;max-width:560px}
+.subject-management-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.subject-manage-card{display:flex;align-items:center;gap:13px;padding:20px}
+.subject-color-dot{width:12px;height:42px;border-radius:8px;flex:0 0 12px;box-shadow:0 0 18px currentColor}
+.subject-manage-copy{flex:1;min-width:0}
+.subject-manage-copy h2{font-size:16px;margin:0 0 6px;overflow-wrap:anywhere}
+.subject-manage-copy p{font-size:11px;color:var(--muted);margin:0}
+.subject-manage-actions{display:flex;gap:10px;flex-wrap:wrap}
+.danger-text{color:#ff8798!important}
+.task-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.task-manager-panel{padding:20px}
+.task-toolbar{display:flex;gap:10px;margin-bottom:16px}
+.task-toolbar input,.task-toolbar select,.dialog-input{min-height:44px;border:1px solid #26374d;border-radius:10px;background:#0b1320;color:var(--text);padding:10px 13px;font:inherit}
+.task-toolbar input{flex:1;min-width:0}
+.task-toolbar select{min-width:135px}
+.task-list{display:grid;gap:12px}
+.task-card{padding:17px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#111b2a,#0a111c)}
+.task-main{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.task-title-label{display:flex;align-items:flex-start;gap:11px;min-width:0;flex:1;cursor:pointer}
+.task-title-label input,.subtask-row input,.dashboard-task-row input{accent-color:#55aaff;width:18px;height:18px;flex:0 0 18px;margin-top:2px}
+.task-title-label>span{font-size:13px;font-weight:700;overflow-wrap:anywhere}
+.task-title-label .done,.subtask-row .done{text-decoration:line-through;color:#77869a}
+.task-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.priority,.due{font:9px 'DM Mono',monospace;padding:5px 7px;border-radius:6px;background:#ffffff0d;color:var(--muted);font-style:normal}
+.priority.high{color:#ff8798;background:#ff6b8318}.priority.medium{color:#ffc66f;background:#ffbd5918}.priority.low{color:#61dabb;background:#38d6b018}
+.due.overdue{color:#ff8798}
+.task-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.task-progress-head{display:flex;justify-content:space-between;margin:14px 0 7px;font-size:10px;color:var(--muted)}
+.task-progress-head b{color:#9bcfff;font-family:'DM Mono',monospace}
+.task-progress{height:7px}.task-progress i{background:linear-gradient(90deg,#287fd1,#5bc6ff);transition:width .25s ease}
+.subtask-list{display:grid;gap:5px;margin:13px 0 0 26px;padding-left:13px;border-left:1px solid #2b405a}
+.subtask-row{display:flex;align-items:center;gap:8px;min-height:38px;color:#c5d4e7;font-size:12px}
+.subtask-row label{display:flex;align-items:center;gap:8px;flex:1;min-width:0;cursor:pointer}
+.subtask-row label span{overflow-wrap:anywhere}
+.subtask-delete{width:38px;height:38px;border:0;border-radius:9px;background:#24151d;color:#ff9aaa;font-size:20px}
+.task-summary-inline{display:flex;gap:18px;margin-bottom:8px;color:var(--muted);font-size:11px}
+.task-summary-inline b{color:var(--text);font-size:17px;margin-right:4px}
+.dashboard-task-row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #ffffff0d;cursor:pointer}
+.dashboard-task-row span{display:grid;gap:4px;flex:1;min-width:0;font-size:12px;overflow-wrap:anywhere}
+.dashboard-task-row small{font-size:9px;color:var(--muted)}
+.dashboard-task-row>b{font:11px 'DM Mono',monospace;color:#9bcfff}
+.task-add-inline{width:100%;margin-top:12px;padding:11px;border:1px dashed #34516e;border-radius:10px;background:transparent;color:#8bc5ff;font-weight:700}
+.dialog-backdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:18px;background:#02050bd9;backdrop-filter:blur(8px)}
+.app-dialog{width:min(100%,440px);display:grid;gap:13px;padding:24px;border:1px solid #2b4563;border-radius:18px;background:#0d1725;box-shadow:0 25px 90px #000b}
+.app-dialog h2{margin:0 0 4px;font-size:21px}
+.app-dialog label{display:grid;gap:7px;font-size:11px;color:#a8bad0}
+.app-dialog .dialog-input{width:100%;font-size:13px}
+.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:6px}
+.dialog-actions button{min-height:43px;padding:0 17px;border-radius:10px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.topbar nav{gap:2px}.topbar nav button{padding:9px 10px;font-size:10px}.subject-management-grid{grid-template-columns:1fr}.task-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.management-heading{align-items:flex-start;flex-direction:column}.management-heading .control{width:100%}.task-main{flex-direction:column}.task-actions{width:100%;justify-content:flex-start}.task-toolbar{flex-direction:column}.task-toolbar select{width:100%}.subject-manage-card{flex-wrap:wrap}.subject-manage-actions{width:100%;padding-left:25px}}
